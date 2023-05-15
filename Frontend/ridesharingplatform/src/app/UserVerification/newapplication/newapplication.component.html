@@ -1,3 +1,8 @@
+<div *ngIf="submitted">
+  <h2 class="text-center mb-4">Application Submitted</h2>
+  <button routerLink="" class="btn btn-primary">Reset</button>
+</div>
+<div *ngIf="!submitted">
 <div *ngIf="isLoading">
   <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="spinner-border" role="status">
@@ -21,7 +26,7 @@
   </div>
   <div class="form-group">
     <label for="name">Password:</label>
-    <input type="text" class="form-control" id="name" formControlName="password"
+    <input type="password" class="form-control" id="name" formControlName="password"
       [class.is-invalid]="newapplication.get('password').errors && newapplication.get('password').touched" required />
     <span class='invalid-feedback' *ngIf='newapplication.get("password").hasError("required")'>
       Please enter Password
@@ -49,7 +54,7 @@
   </div>
   <div class="form-group">
     <label for="phone">Designation:</label>
-    <input type="tel" class="form-control" id="designation" formControlName="designation"
+    <input type="text" class="form-control" id="designation" formControlName="designation"
     [class.is-invalid]="newapplication.get('designation').errors && newapplication.get('designation').touched">
     <span class='invalid-feedback' *ngIf='newapplication.get("designation").hasError("required")'>
       Please enter Designation
@@ -64,11 +69,18 @@
   </div>
   <div class="form-group">
     <label for="phone">Employee Id:</label>
-    <input type="tel" class="form-control" id="employeeid" formControlName="employeeeId">
+    <input type="text" class="form-control" id="employeeid" formControlName="employeeeId">
   </div>
   <div class="form-group">
     <label for="phone">Aadhar Number:</label>
-    <input type="text" class="form-control" id="paadharnumber" formControlName="aadharNumber">
+    <input type="text" class="form-control" id="aadharnumber" formControlName="aadharNumber"
+    [class.is-invalid]="newapplication.get('aadharNumber').errors && newapplication.get('aadharNumber').touched">
+    <span class='invalid-feedback' *ngIf='newapplication.get("aadharNumber").hasError("required")'>
+      Please enter Aadhar Number
+    </span>
+    <span class='invalid-feedback' *ngIf='newapplication.get("aadharNumber").hasError("aadharNumberInvalid")'>
+      Please enter valid Aadhar Number
+    </span>
   </div>
   <div class="form-group">
     <label for="company">Company:</label>
@@ -92,7 +104,11 @@
     </div>
     <div class="form-group">
       <label for="phone">Expiration Date:</label>
-      <input type="date" class="form-control" id="expdate" formControlName="expirationDate">
+      <input type="date" class="form-control" id="expdate" formControlName="expirationDate"
+      [class.is-invalid]="newapplication.get('expirationDate').errors && newapplication.get('expirationDate').touched">
+      <span class='invalid-feedback' *ngIf='newapplication.get("expirationDate").hasError("invalidexpdate")'>
+        Expiration Date is invalid
+      </span>
     </div>
     <div class="form-group">
       <label for="rta">Rta:</label>
@@ -106,4 +122,5 @@
   <button type="reset" class="btn btn-primary">Reset</button>
   <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
 </form>
+</div>
 </div>

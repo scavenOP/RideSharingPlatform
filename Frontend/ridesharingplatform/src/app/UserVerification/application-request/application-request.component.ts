@@ -84,6 +84,12 @@ export class ApplicationRequestComponent implements OnInit{
 
   updateApplicationStatus():void{
     //this.applicationRequest.applicationStatus = status;
+    if(this.applicationRequest.expirationDate==null){
+      this.applicationRequest.licenseNo="";
+      this.applicationRequest.rta="";
+      this.applicationRequest.alowedVehicles="";
+      this.applicationRequest.expirationDate=new Date();
+    }
     this.apiService.updateApplicationStatus(this.applicationRequest).subscribe(response => {
       this.applicationRequest=null;
       this.getPendingApplicationRequest();

@@ -46,7 +46,7 @@
                 <p>Aadhar Number : {{applicationRequest.aadharNumber}}</p>
                 <p>Company : {{applicationRequest.companyId}}</p>
                 <p *ngIf="applicationRequest.licenseNo==null">No Driving License</p>
-                <button *ngIf="applicationRequest.licenseNo!=null" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button *ngIf="applicationRequest.licenseNo!=null" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Show Driving License
                   </button><br>
                 <label for="status">Change Status</label>

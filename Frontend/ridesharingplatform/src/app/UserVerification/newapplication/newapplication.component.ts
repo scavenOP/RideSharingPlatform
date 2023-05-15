@@ -17,6 +17,7 @@ export class NewapplicationComponent implements OnInit {
   newapplication: FormGroup ;
   companyList: any[]=[];
   isLoading=false;
+  submitted:boolean;
   
   errorMessage: string="";
   
@@ -41,11 +42,30 @@ export class NewapplicationComponent implements OnInit {
     
   }
 
+  validateAadharNumber():ValidatorFn{
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const phoneNumber = control.value;
+      if (phoneNumber && phoneNumber.length !== 12) {
+        return { 'aadharNumberInvalid': true };
+      }
+      return null;
+    };
+    
+  }
+
   validatelicensenumber():ValidatorFn{
     return(control: AbstractControl): { [key: string]:any}|null =>{
       const phoneNumber = control.value;
       const validPhoneNumber = /^[A-Za-z]{3}\d{4}[A-Za-z]{3}$/; // regular expression for 10 digit phone number
       return validPhoneNumber.test(phoneNumber) ? null : { invalidlicenseno: true };
+    }
+  }
+  validateexpdate():ValidatorFn{
+    return(control: AbstractControl): { [key: string]:any}|null =>{
+      const expdate = new Date(control.value);
+      var d =new Date();
+      console.log(d); // regular expression for 10 digit phone number
+      return expdate>=d ? null : { invalidexpdate: true };
     }
   }
 
@@ -59,14 +79,15 @@ export class NewapplicationComponent implements OnInit {
       designation: new FormControl('',Validators.required),
       roleId: new FormControl('',Validators.required),
       employeeeId: new FormControl('',Validators.required),
-      aadharNumber: new FormControl('',Validators.required),
+      aadharNumber: new FormControl('',[Validators.required, this.validateAadharNumber()]),
       applicationStatus: new FormControl('New'),
       companyId: new FormControl('',Validators.required),
       licenseNo: new FormControl(null,[this.validatelicensenumber()]),
-      expirationDate: new FormControl(new Date),
+      expirationDate: new FormControl(new Date,this.validateexpdate()),
       rta: new FormControl(),
       alowedVehicles: new FormControl(),
     });
+    this.submitted=false;
 
     // Fetch the list of companies from the API
     this.dataService.getCompanies().subscribe((response: any[]) => {
@@ -90,6 +111,7 @@ export class NewapplicationComponent implements OnInit {
   this.dataService.createApplication(this.newapplication.value).subscribe(response => {
       console.log(response);
       // show acknowledgement message here
+      this.submitted=true;
     }, error => {
       console.log(error);
       // show error message here
