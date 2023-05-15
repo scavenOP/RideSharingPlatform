@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">RideSharingPlatform</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User Verification
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/new-application">New Application</a>
+            <a class="dropdown-item" routerLink="/application-request">Pending Application Requests</a>
+            </div>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav ml-auto">
+        <ng-container *ngIf="isLoggedIn()">
+          <li class=" dropdown">
+            
+               <span class="navbar-text mr-3">Welcome {{ currentUser }}</span>
+            
+              <li><button class="btn btn-primary" (click)="logout()" href="#">Logout</button></li>
+            
+          
+        </ng-container>
+        <ng-container *ngIf="!isLoggedIn()">
+        <li class="nav-item">
+          <button class="btn btn-primary" routerLink="/login">Login</button>
+        </li>
+      </ng-container>
+      </ul>
+    </div>
+  </nav>
+  <!-- <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="emailInput" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="emailInput" formControlName="email" placeholder="Enter email" required>
+            </div>
+            <div class="mb-3">
+              <label for="passwordInput" class="form-label">Password</label>
+              <input type="password" class="form-control" id="passwordInput" formControlName="password" placeholder="Password"  required>
+            </div>
+            <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+
+            <button type="submit" [disabled]="isLoading" class="btn btn-primary">
+              <span *ngIf="isLoading"  class="spinner-border spinner-border-sm mr-1"></span>   Login</button>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  

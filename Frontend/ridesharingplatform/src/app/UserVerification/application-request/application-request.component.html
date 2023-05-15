@@ -1,0 +1,90 @@
+<div *ngIf="!isAutherised">
+    <h2 class="text-center mb-4">Login to View this Page.</h2>
+</div>
+<div *ngIf="!userhasrole && isAutherised">
+    <h2 class="text-center mb-4">User is not authorised.</h2>
+</div>
+<div *ngIf="userhasrole && isAutherised">
+<h2 class="text-center mb-4">Pending Application Requests</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">OfficialMail</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let request of applicationRequests">
+                        <td>{{request.username}}</td>
+                        <td>{{request.officialEmail}}</td>
+                        <td>{{request.phoneNumber}}</td>
+                        <td>{{request.companyId}}</td>
+                        <td>
+                            <a [routerLink]="['/application-request', request.userId]" (click)="selectRequest(request)">View</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div *ngIf="applicationRequest">
+                <h2>Application Details</h2>
+                <p>User Name : {{ applicationRequest.username }}</p>
+                <p>Official Email : {{ applicationRequest.officialEmail }}</p>
+                <p>Phone Number : {{applicationRequest.phoneNumber}}</p>
+                <p>Designation : {{applicationRequest.designation}}</p>
+                <p *ngIf="applicationRequest.roleId==1">Role : Motorist</p>
+                <p *ngIf="applicationRequest.roleId==2">Role : Rider</p>
+                <p>EmployeeId : {{applicationRequest.employeeeId}}</p>
+                <p>Aadhar Number : {{applicationRequest.aadharNumber}}</p>
+                <p>Company : {{applicationRequest.companyId}}</p>
+                <p *ngIf="applicationRequest.licenseNo==null">No Driving License</p>
+                <button *ngIf="applicationRequest.licenseNo!=null" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Show Driving License
+                  </button><br>
+                <label for="status">Change Status</label>
+                <select class="form-control" [(ngModel)]="applicationRequest.applicationStatus" name="status" id="status">
+                    <option value="">Select a company</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+                <button class="btn btn-primary" (click)="updateApplicationStatus()">Update</button>
+            </div>
+
+            
+
+        </div>
+        
+    </div>
+</div>
+</div>
+
+<div  class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Driving License Details</h5>
+          <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            
+          
+        </div>
+        <div class="modal-body">
+            <p>License No : {{ applicationRequest?.licenseNo }}</p>
+            <p>Expiration Date : {{ applicationRequest?.expirationDate }}</p>
+            <p>RTA : {{applicationRequest?.rta}}</p>
+            <p>Allowed Vehicles : {{applicationRequest?.alowedVehicles}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>

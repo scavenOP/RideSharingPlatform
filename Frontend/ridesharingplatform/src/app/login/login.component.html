@@ -1,0 +1,21 @@
+
+    <h5 class="text-center mb-4" id="loginModalLabel">Login</h5>
+    
+  
+  <div class="modal-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="emailInput" formControlName="email" placeholder="Enter email" required>
+      </div>
+      <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input type="password" class="form-control" id="passwordInput" formControlName="password" placeholder="Password"  required>
+      </div>
+      <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+
+      <button type="submit" [disabled]="isLoading" class="btn btn-primary">
+        <span *ngIf="isLoading"  class="spinner-border spinner-border-sm mr-1"></span>   Login</button>
+      
+    </form>
+    </div>
