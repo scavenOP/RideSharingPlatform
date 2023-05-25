@@ -31,8 +31,7 @@ namespace RideSharingPlatform.Microservices.VehicleManagement.Models.DTOs
 
         public DateTime RegistrationExpiresOn { get; set; }
 
-        [MaxLength(100)]
-        public string RCDocURL { get; set; }
+        
 
         [MaxLength(50)]
         public string InsuranceCompanyName { get; set; }
@@ -44,8 +43,7 @@ namespace RideSharingPlatform.Microservices.VehicleManagement.Models.DTOs
         [ReportDatePast(ErrorMessage = "Enter date should not be a past date")]
         public DateTime InsuranceExpiresOn { get; set; }
 
-        [MaxLength(100)]
-        public string InsuranceCertificateDOCURL { get; set; }
+        
 
        // [MaxLength(10)]
         public int PUCCertificateNo { get; set; }
@@ -55,8 +53,7 @@ namespace RideSharingPlatform.Microservices.VehicleManagement.Models.DTOs
         [ReportDatePast(ErrorMessage = "Enter date should not be a past date")]
         public DateTime PUCValidUntil { get; set; }
 
-        [MaxLength(100)]
-        public string PUCDOCURL { get; set; }
+        
 
 
         public class ReportDatePast : ValidationAttribute

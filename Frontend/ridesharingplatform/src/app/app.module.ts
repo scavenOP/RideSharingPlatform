@@ -9,6 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApplicationRequestComponent } from './UserVerification/application-request/application-request.component';
 import { LoginComponent } from './login/login.component'; 
 import { RouterModule, Routes } from '@angular/router';
+import { AddvehicleComponent } from './VehicleManagement/addvehicle/addvehicle.component';
+import { LoadingComponent } from './loading/loading.component';
+import { MyVehicleComponent } from './VehicleManagement/my-vehicle/my-vehicle.component';
+import { ApproveRejectVehicleComponent } from './VehicleManagement/approve-reject-vehicle/approve-reject-vehicle.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +21,10 @@ import { RouterModule, Routes } from '@angular/router';
     NavComponent,
     ApplicationRequestComponent,
     LoginComponent,
+    AddvehicleComponent,
+    LoadingComponent,
+    MyVehicleComponent,
+    ApproveRejectVehicleComponent,
     
   ],
   imports: [

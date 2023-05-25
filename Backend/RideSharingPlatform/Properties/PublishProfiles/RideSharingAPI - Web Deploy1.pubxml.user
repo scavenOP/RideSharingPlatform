@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEbOuqXWm1kOJWH1hwrky9QAAAAACAAAAAAAQZgAAAAEAACAAAAD967vaGyjc9O6uXLYRH2MNCxRH34EDpk5v3kQGzkEtywAAAAAOgAAAAAIAACAAAAC8zJBLfhRmndWf94wBVZy8AaKHWnhZRlw2JZpvA11oO4AAAACLQfjxuD1GnwDIapRFS5VzgIAMdTFb0PYGbWBKN7KJ5kS9M0TavuMaKu5HXFFHFdPV+A4t/pAhhBr2k9ue2/HrQK87qdwWjfP2ZkYbEd2tZk6j1EkYFjJ3fn/L3zXu6TFuhkLct5Dt9UVKJpimVYmzcAh6/64clQixSB4pKN9bRUAAAACE/C6eFjAv+joJtQo3FyOTdYN9OSJfVaiNrs9Lbvbvu0Z01a1tLxWa85vRlHw9B5TV9qimItT2M7o6TLd06f6/</EncryptedPassword>
+    <History>True|2023-05-25T09:53:06.7296893Z;False|2023-05-25T13:11:43.8593168+05:30;True|2023-05-25T09:18:43.3727371+05:30;True|2023-05-25T09:08:14.8388319+05:30;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="RideSharingPlatform.Context.RideDbContext">
+      <Value>Server=tcp:ridedbserver.database.windows.net,1433%3bInitial Catalog=RideSharingPlatfromDB%3bPersist Security Info=False%3bUser ID=niladri%3bPassword=Devjani%402022%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

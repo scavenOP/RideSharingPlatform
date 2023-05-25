@@ -28,6 +28,7 @@ namespace RideSharingPlatform.Microservices.VehicleManagement.Controller
 
         [Route("vehicles/vehicletypes")]
         [HttpGet]
+        [Authorize(Roles ="Motorist")]
         public IActionResult GetAllVehicleTypes()
         {
             return Ok(vehicleService.GetAllVehicleTypes());
@@ -35,18 +36,20 @@ namespace RideSharingPlatform.Microservices.VehicleManagement.Controller
 
         [Route("vehicles/add/vehicle")]
         [HttpPost]
+        [Authorize(Roles = "Motorist")]
         public IActionResult AddNewVehicle([FromBody] RegisterVehicleDTO registerVehicleDTO)
         {
-            if (vehicleService.insertVehicle(registerVehicleDTO))
+            var r = vehicleService.insertVehicle(registerVehicleDTO);
+            if (r)
             {
-                return Ok("Inserted");
+                return Ok(r);
             }
             return BadRequest();
         }
         
         [Route("vehicles/delete/{regno}")]
         [HttpDelete]
-        [Authorize]
+        [Authorize(Roles = "Motorist")]
         public IActionResult DeleteVehicle(string regno)
         {
 
@@ -55,7 +58,7 @@ namespace RideSharingPlatform.Microservices.VehicleManagement.Controller
 
             if (r)
             {
-                return Ok("Deleted");
+                return Ok(r);
             }
             return BadRequest();
         }
@@ -68,14 +71,24 @@ namespace RideSharingPlatform.Microservices.VehicleManagement.Controller
             return Ok(r);
         }
 
+        [HttpGet]
+        [Route("vehicle/pendingvehicles")]
+        [Authorize(Roles = "SecurityHead")]
+        public IActionResult GetPendingVehicles()
+        {
+            var r = vehicleService.GetAllPendingVehicles();
+            return Ok(r);
+        }
+
         [HttpPut]
         [Route("vehicles/approveorreject")]
+        //[Authorize(Roles = "SecurityHead")]
         public IActionResult UpdateVehicleStatus([FromBody] UpdateVehiceDTO updateVehiceDTO)
         {
             var r = vehicleService.UpdateVehicleStatus(updateVehiceDTO);
             if (r)
             {
-                return Ok("Updated");
+                return Ok(r);
 
             }
             return BadRequest();

@@ -7,5 +7,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhToveHqs30uSlDnrfgQRWgAAAAACAAAAAAADZgAAwAAAABAAAABqVkaYMPp2AlcYxOxfoBTwAAAAAASAAACgAAAAEAAAACcA/5rMDitdyZzt8BAtxfqAAAAAnzibkCq+AbldYnx7LJMrtjtviIneIXbRK6GpV/Qh1k7ES7hEYkd4mbCrLirMHgedyaLztYUUK9kf11ETMfz5yv+6foSeQjFtimLwQP6vAzbideMRxzYGTus6ecq4bFVxz1mfPZcRP2Zx7tCG9bOozajACPfHAiZsr2jCN+kpGg4UAAAASZtmszwCfBDz0RScHPYPhXHK5zU=</EncryptedPassword>
+    <_PublishTargetUrl>ftps://waws-prod-blu-409.ftp.azurewebsites.windows.net/site/wwwroot</_PublishTargetUrl>
+    <History>False|2023-05-25T03:29:29.0438736Z;</History>
+    <LastFailureDetails />
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DbConnection">
+      <Value>Server=tcp:ridedbserver.database.windows.net,1433%3bInitial Catalog=RideSharingPlatfromDB%3bPersist Security Info=False%3bUser ID=niladri%3bPassword=Devjani%402022%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
 </Project>

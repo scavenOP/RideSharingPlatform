@@ -4,9 +4,15 @@ import { NewapplicationComponent } from './UserVerification/newapplication/newap
 import { ApplicationRequestComponent } from './UserVerification/application-request/application-request.component';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
+import { AddvehicleComponent } from './VehicleManagement/addvehicle/addvehicle.component';
+import { MyVehicleComponent } from './VehicleManagement/my-vehicle/my-vehicle.component';
+import { ApproveRejectVehicleComponent } from './VehicleManagement/approve-reject-vehicle/approve-reject-vehicle.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/new-application', pathMatch: 'full' },
+  { path: 'add-vehicle', component: AddvehicleComponent},
+  { path: 'my-vehicle' , component: MyVehicleComponent},
+  { path: 'inspect-vehicle', component: ApproveRejectVehicleComponent},
   { path: 'new-application', component: NewapplicationComponent },
   { path: 'application-request', component: ApplicationRequestComponent},
   {path: 'login',component:LoginComponent}

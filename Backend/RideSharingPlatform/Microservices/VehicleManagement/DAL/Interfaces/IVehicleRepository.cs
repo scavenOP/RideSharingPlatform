@@ -10,5 +10,6 @@ namespace RideSharingPlatform.Microservices.VehicleManagement.DAL.Interfaces
         int DeleteVehicle(string registtrationNo, int userid);
         VehicleDTO GetVehicle(int userId);
         bool UpdateVehicleStatus(UpdateVehiceDTO updateVehiceDTO);
+        List<VehicleDTO> GetPendingVehicles();
     }
 }

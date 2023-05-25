@@ -406,11 +406,6 @@ namespace RideSharingPlatform.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<string>("InsuranceCertificateDOCURL")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<string>("InsuranceCompanyName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -430,21 +425,11 @@ namespace RideSharingPlatform.Migrations
                     b.Property<int>("PUCCertificateNo")
                         .HasColumnType("int");
 
-                    b.Property<string>("PUCDOCURL")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<DateTime>("PUCIssuedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("PUCValidUntil")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("RCDocURL")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("RTOName")
                         .IsRequired()

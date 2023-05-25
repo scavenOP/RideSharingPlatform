@@ -44,6 +44,26 @@ namespace RideSharingPlatform.Microservices.VehicleManagement.DAL
             return _context.SaveChanges();
         }
 
+        public List<VehicleDTO> GetPendingVehicles()
+        {
+            var r = new List<VehicleDTO>();
+
+            var pvehicles = _context.Vehicles.Where(v => v.InspectionStatus == "pending").ToList();
+            foreach ( var vehicle in pvehicles )
+            {
+                VehicleDetail vd = _context.VehicleDetails.FirstOrDefault(v => v.RegistrationNo ==vehicle.RegistrationNo);
+                VehicleDTO registerVehicleDTO= _mapper.Map<VehicleDTO>(vd);
+                registerVehicleDTO.BelongsToUserId = vehicle.BelongsToUserId;
+                registerVehicleDTO.VehicleTypeId= vehicle.VehicleTypeId;
+                registerVehicleDTO.VehicleType= _context.VehicleTypes.FirstOrDefault(v => v.ID==vehicle.VehicleTypeId);
+                registerVehicleDTO.InspectionStatus= vehicle.InspectionStatus;
+
+                r.Add(registerVehicleDTO);
+                
+            }
+            return r;
+        }
+
         public VehicleDTO GetVehicle(int userId)
         {
             Vehicle vehicle = _context.Vehicles.FirstOrDefault(v => v.BelongsToUserId == userId);
@@ -70,6 +90,8 @@ namespace RideSharingPlatform.Microservices.VehicleManagement.DAL
         {
             var vehicle = _context.Vehicles.FirstOrDefault(v => v.RegistrationNo == updateVehiceDTO.RegistrationNo);
             vehicle.InspectionStatus= updateVehiceDTO.InspectionStatus;
+            vehicle.InspectedOn=updateVehiceDTO.InspectedOn;
+            vehicle.InspectionByUserId=updateVehiceDTO.InspectionByUserId;
             int r =_context.SaveChanges();
             if (r > 0)
             {

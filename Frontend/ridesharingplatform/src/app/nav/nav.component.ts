@@ -17,23 +17,49 @@ export class NavComponent implements OnInit{
   errorMessage: string;
   currentUser: string;
   isLoading=false;
-  currentuserrole:string;
+  currentuserrole:string=null;
   localservice:TokenService;
 
   constructor(private router: Router,private formBuilder: FormBuilder, private loginService: ApiService,private tokenservice: TokenService) { }
 
   ngOnInit() {
+    console.log("user"+this.currentuserrole);
+    
     this.loginService.unAuthorisedError.subscribe(()=>{
       this.currentUser=this.tokenservice.getname();
       this.localservice=this.tokenservice;
-      console.log("user"+this.currentUser);
+      this.currentuserrole=this.tokenservice.getRole();
+      console.log("user"+this.currentuserrole);
+      
       
     })
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
+    
   }
+
+  isrider(): boolean{
+    var r = this.tokenservice.getRole() =="Rider";
+    //console.log(r);
+    return r;
+
+  }
+  issecurity(): boolean{
+    var r = this.tokenservice.getRole() =="SecurityHead";
+    //console.log(r);
+    return r;
+
+  }
+  ismotorist(): boolean{
+    var r = this.tokenservice.getRole() =="Motorist";
+    //console.log(r);
+    return r;
+
+  }
+
+  
 
   isLoggedIn(): boolean {
     var r =this.tokenservice.getToken() != null;

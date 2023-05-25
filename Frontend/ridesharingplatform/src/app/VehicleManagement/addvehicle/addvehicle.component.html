@@ -1,0 +1,149 @@
+<div *ngIf="submitted">
+    <h2 class="text-center mb-4">Application Submitted</h2>
+  </div>
+  <div *ngIf="!submitted">
+    <div *ngIf="isLoading">
+      <app-loading></app-loading>
+    </div>
+    <div *ngIf="!isLoading">
+      <h2 class="text-center mb-4">New Vehicle Application</h2>
+      <div *ngIf="errorMessage!=''" class="alert alert-danger">{{ errorMessage }}</div>
+      <form [formGroup]="newvehicle" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="registrationNo">Registration No:</label>
+          <input type="text" class="form-control" id="registrationNo" formControlName="registrationNo" 
+          [class.is-invalid]="newvehicle.get('registrationNo').errors && newvehicle.get('registrationNo').touched"
+           required />
+           <span class='invalid-feedback' *ngIf='newvehicle.get("registrationNo").hasError("required")'>
+            Please enter Registration Number
+          </span>
+          <span class='invalid-feedback' *ngIf='newvehicle.get("registrationNo").hasError("invalidregistrationno") && !newvehicle.get("registrationNo").hasError("required")'>
+            Please enter Valid Registration Number
+          </span>
+        </div>
+
+        <div class="form-group">
+            <label for="company">Vehicle Type:</label>
+        <select class="form-control" id="vehicleTypeId" formControlName="vehicleTypeId"
+        [class.is-invalid]="newvehicle.get('vehicleTypeId').errors && newvehicle.get('vehicleTypeId').touched">
+          <option value="">Select a Vehicle Type</option>
+          <option *ngFor="let vt of vehicletype" [value]="vt.id">{{ vt.type }}</option>
+        </select>
+        <span class='invalid-feedback' *ngIf='newvehicle.get("vehicleTypeId").hasError("required")'>
+            Please select Vehicle Type
+          </span>
+    
+          </div>
+
+          <div class="form-group">
+            <label for="rtoName">RTO Name :</label>
+            <input type="text" class="form-control" id="rtoName" formControlName="rtoName" 
+            [class.is-invalid]="newvehicle.get('rtoName').errors && newvehicle.get('rtoName').touched" required />
+            <span class='invalid-feedback' *ngIf='newvehicle.get("rtoName").hasError("required")'>
+                Please enter RTO Name
+              </span>
+          </div>
+
+          <div class="form-group">
+            <label for="registrationDate">Registration Date :</label>
+            <input type="date" class="form-control" id="registrationDate" formControlName="registrationDate" 
+            [class.is-invalid]="newvehicle.get('registrationDate').errors && newvehicle.get('registrationDate').touched"
+            required />
+            
+              <span class='invalid-feedback' *ngIf='newvehicle.get("registrationDate").hasError("invalidregistrationdate")'>
+                Vehicle is older than 15 years
+              </span>
+    
+          </div>
+
+          <div class="form-group">
+            <label for="registrationExpiresOn">Registration Expiration Date :</label>
+            <input type="date" class="form-control" id="registrationExpiresOn" formControlName="registrationExpiresOn" 
+            [class.is-invalid]="newvehicle.get('registrationExpiresOn').errors && newvehicle.get('registrationExpiresOn').touched"
+             required />
+             <span class='invalid-feedback' *ngIf='newvehicle.get("registrationExpiresOn").hasError("invalidregistrationexpirydate")'>
+                Registration must be valid for more than 2 years
+              </span>
+    
+          </div>
+
+          <div class="form-group">
+            <label for="insuranceCompanyName">Insurance Company Name :</label>
+            <input type="text" class="form-control" id="insuranceCompanyName" formControlName="insuranceCompanyName" 
+            [class.is-invalid]="newvehicle.get('insuranceCompanyName').errors && newvehicle.get('insuranceCompanyName').touched"
+            required />
+            <span class='invalid-feedback' *ngIf='newvehicle.get("insuranceCompanyName").hasError("required")'>
+                Please enter Insaurance Company Name
+              </span>
+          </div>
+
+          <div class="form-group">
+            <label for="insuranceNo">Insurance No :</label>
+            <input type="text" class="form-control" id="insuranceNo" formControlName="insuranceNo"
+             [class.is-invalid]="newvehicle.get('insuranceNo').errors && newvehicle.get('insuranceNo').touched"
+            required />
+            <span class='invalid-feedback' *ngIf='newvehicle.get("insuranceNo").hasError("required")'>
+                Please enter Insaurance Number
+              </span>
+          </div>
+
+          <div class="form-group">
+            <label for="insurancedOn">Insuranced On :</label>
+            <input type="date" class="form-control" id="insurancedOn" formControlName="insurancedOn"
+             [class.is-invalid]="newvehicle.get('insurancedOn').errors && newvehicle.get('insurancedOn').touched"
+            required />
+             <span class='invalid-feedback' *ngIf='newvehicle.get("insurancedOn").hasError("required")'>
+                Please enter Insaurance Start Date
+              </span>
+    
+          </div>
+
+          <div class="form-group">
+            <label for="insuranceExpiresOn">Insurance Expires On :</label>
+            <input type="date" class="form-control" id="insuranceExpiresOn" formControlName="insuranceExpiresOn" 
+            [class.is-invalid]="newvehicle.get('insuranceExpiresOn').errors && newvehicle.get('insuranceExpiresOn').touched"
+            required />
+            <span class='invalid-feedback' *ngIf='newvehicle.get("insuranceExpiresOn").hasError("invalidinsauranceexpirydate")'>
+                Insurance must be valid for more than 2 years
+              </span>
+    
+          </div>
+
+          <div class="form-group">
+            <label for="pucCertificateNo">PUC Certificate No :</label>
+            <input type="number" class="form-control" id="pucCertificateNo" formControlName="pucCertificateNo" 
+            [class.is-invalid]="newvehicle.get('pucCertificateNo').errors && newvehicle.get('pucCertificateNo').touched"
+            required />
+            <span class='invalid-feedback' *ngIf='newvehicle.get("pucCertificateNo").hasError("required")'>
+                Please enter PUC Cirtificate Number
+              </span>
+          </div>
+
+          <div class="form-group">
+            <label for="pucIssuedOn">PUC Issued On :</label>
+            <input type="date" class="form-control" id="pucIssuedOn" formControlName="pucIssuedOn" 
+            [class.is-invalid]="newvehicle.get('pucIssuedOn').errors && newvehicle.get('pucIssuedOn').touched"
+            required />
+            <span class='invalid-feedback' *ngIf='newvehicle.get("pucIssuedOn").hasError("required")'>
+              Please enter PUC Issue Date
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="pucValidUntil">PUC Valid Until :</label>
+            <input type="date" class="form-control" id="pucValidUntil" formControlName="pucValidUntil" 
+            [class.is-invalid]="newvehicle.get('pucValidUntil').errors && newvehicle.get('pucValidUntil').touched"
+            required />
+            <span class='invalid-feedback' *ngIf='newvehicle.get("pucValidUntil").hasError("invalidpucexpirydate")'>
+              Please enter valid PUC Expiry Date
+            </span>
+    
+          </div>
+
+        
+        
+        <button type="reset" class="btn btn-primary">Reset</button>
+        <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
+      </form>
+    </div>
+  </div>

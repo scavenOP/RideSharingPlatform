@@ -1,0 +1,39 @@
+
+form {
+    min-width:300px;
+    max-width:400px;
+    padding:20px;
+    margin:0 auto;
+    background: #70e1f5;
+  background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);  
+  background: linear-gradient(to right, #ffd194, #70e1f5);
+    -webkit-box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+    -moz-box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+    box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+  }
+  
+  form input {
+    border:1px solid #eee;
+    border-radius:0 !important;
+    padding:5px 8px;
+    color:#444;
+  }
+  
+  form button {
+    margin-top:20px;
+  }
+  
+  
+  
+  .pull-right {
+    float:right;
+  }
+  .cont{
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    
+  }
+    

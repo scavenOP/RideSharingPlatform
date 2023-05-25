@@ -314,3 +314,52 @@ GO
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230525094925_up')
+BEGIN
+    DECLARE @var0 sysname;
+    SELECT @var0 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[VehicleDetails]') AND [c].[name] = N'InsuranceCertificateDOCURL');
+    IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [VehicleDetails] DROP CONSTRAINT [' + @var0 + '];');
+    ALTER TABLE [VehicleDetails] DROP COLUMN [InsuranceCertificateDOCURL];
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230525094925_up')
+BEGIN
+    DECLARE @var1 sysname;
+    SELECT @var1 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[VehicleDetails]') AND [c].[name] = N'PUCDOCURL');
+    IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [VehicleDetails] DROP CONSTRAINT [' + @var1 + '];');
+    ALTER TABLE [VehicleDetails] DROP COLUMN [PUCDOCURL];
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230525094925_up')
+BEGIN
+    DECLARE @var2 sysname;
+    SELECT @var2 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[VehicleDetails]') AND [c].[name] = N'RCDocURL');
+    IF @var2 IS NOT NULL EXEC(N'ALTER TABLE [VehicleDetails] DROP CONSTRAINT [' + @var2 + '];');
+    ALTER TABLE [VehicleDetails] DROP COLUMN [RCDocURL];
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230525094925_up')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20230525094925_up', N'6.0.13');
+END;
+GO
+
+COMMIT;
+GO
+

@@ -43,6 +43,8 @@ export class LoginComponent implements OnInit{
         //console.log(this.tokenservice.getname());
         this.navComponent.currentUser=this.tokenservice.getname();
         //document.getElementById('closeModal').click();
+        this.navComponent.currentuserrole=this.tokenservice.getRole();
+        console.log("role"+this.navComponent.currentuserrole)
         this.isLoading=false;
         const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
         this.router.navigate([returnUrl]);

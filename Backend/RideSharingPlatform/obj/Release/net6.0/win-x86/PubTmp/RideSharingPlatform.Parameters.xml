@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="RideSharingAPI" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\obj\\Release\\net6\.0\\win-x86\\PubTmp\\Out\\$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\acer\ pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\obj\\Release\\net6\.0\\win-x86\\PubTmp\\Out\\$" />
   </parameter>
   <parameter name="RideSharingPlatform.Context.RideDbContext" description="" value="Server=tcp:ridedbserver.database.windows.net,1433;Initial Catalog=RideSharingPlatfromDB;Persist Security Info=False;User ID=niladri;Password=Devjani@2022;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="dbfullsql">
-    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\obj\\Release\\net6\.0\\win-x86\\PubTmp\\EFSQLScripts\\RideSharingPlatform\.Context\.RideDbContext\.sql$" />
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\acer\ pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\obj\\Release\\net6\.0\\win-x86\\PubTmp\\EFSQLScripts\\RideSharingPlatform\.Context\.RideDbContext\.sql$" />
   </parameter>
 </parameters>

@@ -1,126 +1,127 @@
 <div *ngIf="submitted">
   <h2 class="text-center mb-4">Application Submitted</h2>
-  <button routerLink="" class="btn btn-primary">Reset</button>
 </div>
 <div *ngIf="!submitted">
-<div *ngIf="isLoading">
-  <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-    <div class="spinner-border" role="status">
-      <span class="visually-hidden">Loading....</span>
-      
-    </div>
-  </div>
-</div>
-<div *ngIf="!isLoading">
-<h2 class="text-center mb-4">New Application</h2>
-<div *ngIf="errorMessage!=''" class="alert alert-danger">{{ errorMessage }}</div>
-<form [formGroup]="newapplication" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="name">Name:</label>
-    <input type="text" class="form-control" id="name" formControlName="username"
-      [class.is-invalid]="newapplication.get('username').errors && newapplication.get('username').touched" required />
-    <span class='invalid-feedback' *ngIf='newapplication.get("username").hasError("required")'>
-      Please enter User Name
-    </span>
+  <div *ngIf="isLoading">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading....</span>
 
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="name">Password:</label>
-    <input type="password" class="form-control" id="name" formControlName="password"
-      [class.is-invalid]="newapplication.get('password').errors && newapplication.get('password').touched" required />
-    <span class='invalid-feedback' *ngIf='newapplication.get("password").hasError("required")'>
-      Please enter Password
-    </span>
+  <div *ngIf="!isLoading">
+    <h2 class="text-center mb-4">New Application</h2>
+    <div *ngIf="errorMessage!=''" class="alert alert-danger">{{ errorMessage }}</div>
+    <form [formGroup]="newapplication" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" formControlName="username"
+          [class.is-invalid]="newapplication.get('username').errors && newapplication.get('username').touched"
+          required />
+        <span class='invalid-feedback' *ngIf='newapplication.get("username").hasError("required")'>
+          Please enter User Name
+        </span>
 
-  </div>
-  <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="email" class="form-control" id="email" formControlName="officialEmail"
-      [class.is-invalid]="newapplication.get('officialEmail').errors && newapplication.get('officialEmail').touched">
-    <span class='invalid-feedback' *ngIf='newapplication.get("officialEmail").hasError("required")'>
-      Please enter Official Email address
-    </span>
-  </div>
-  <div class="form-group">
-    <label for="phone">Phone:</label>
-    <input type="text" class="form-control" id="phone" formControlName="phoneNumber"
-      [class.is-invalid]="newapplication.get('phoneNumber').errors && newapplication.get('phoneNumber').touched">
-    <span class='invalid-feedback' *ngIf='newapplication.get("phoneNumber").hasError("required")'>
-      Please enter Phone Number
-    </span>
-    <span class='invalid-feedback' *ngIf='newapplication.get("phoneNumber").hasError("phoneNumberInvalid")'>
-      Please enter valid phone number
-    </span>
-  </div>
-  <div class="form-group">
-    <label for="phone">Designation:</label>
-    <input type="text" class="form-control" id="designation" formControlName="designation"
-    [class.is-invalid]="newapplication.get('designation').errors && newapplication.get('designation').touched">
-    <span class='invalid-feedback' *ngIf='newapplication.get("designation").hasError("required")'>
-      Please enter Designation
-    </span>
-  </div>
-  <div class="form-group">
-    <label for="role">Role:</label>
-    <div>
-      <label><input type="radio" name="role" value=1 formControlName="roleId" required> Motorist</label>
-      <label><input type="radio" name="role" value=2 formControlName="roleId" required> Rider</label>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="phone">Employee Id:</label>
-    <input type="text" class="form-control" id="employeeid" formControlName="employeeeId">
-  </div>
-  <div class="form-group">
-    <label for="phone">Aadhar Number:</label>
-    <input type="text" class="form-control" id="aadharnumber" formControlName="aadharNumber"
-    [class.is-invalid]="newapplication.get('aadharNumber').errors && newapplication.get('aadharNumber').touched">
-    <span class='invalid-feedback' *ngIf='newapplication.get("aadharNumber").hasError("required")'>
-      Please enter Aadhar Number
-    </span>
-    <span class='invalid-feedback' *ngIf='newapplication.get("aadharNumber").hasError("aadharNumberInvalid")'>
-      Please enter valid Aadhar Number
-    </span>
-  </div>
-  <div class="form-group">
-    <label for="company">Company:</label>
-    <select class="form-control" id="company" formControlName="companyId">
-      <option value="">Select a company</option>
-      <option *ngFor="let company of companyList" [value]="company.id">{{ company.companyName }}</option>
-    </select>
+      </div>
+      <div class="form-group">
+        <label for="name">Password:</label>
+        <input type="password" class="form-control" id="name" formControlName="password"
+          [class.is-invalid]="newapplication.get('password').errors && newapplication.get('password').touched"
+          required />
+        <span class='invalid-feedback' *ngIf='newapplication.get("password").hasError("required")'>
+          Please enter Password
+        </span>
 
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" formControlName="officialEmail"
+          [class.is-invalid]="newapplication.get('officialEmail').errors && newapplication.get('officialEmail').touched">
+        <span class='invalid-feedback' *ngIf='newapplication.get("officialEmail").hasError("required")'>
+          Please enter Official Email address
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="text" class="form-control" id="phone" formControlName="phoneNumber"
+          [class.is-invalid]="newapplication.get('phoneNumber').errors && newapplication.get('phoneNumber').touched">
+        <span class='invalid-feedback' *ngIf='newapplication.get("phoneNumber").hasError("required")'>
+          Please enter Phone Number
+        </span>
+        <span class='invalid-feedback' *ngIf='newapplication.get("phoneNumber").hasError("phoneNumberInvalid")'>
+          Please enter valid phone number
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="phone">Designation:</label>
+        <input type="text" class="form-control" id="designation" formControlName="designation"
+          [class.is-invalid]="newapplication.get('designation').errors && newapplication.get('designation').touched">
+        <span class='invalid-feedback' *ngIf='newapplication.get("designation").hasError("required")'>
+          Please enter Designation
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="role">Role:</label>
+        <div>
+          <label><input type="radio" name="role" value=1 formControlName="roleId" required> Motorist</label>
+          <label><input type="radio" name="role" value=2 formControlName="roleId" required> Rider</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Employee Id:</label>
+        <input type="text" class="form-control" id="employeeid" formControlName="employeeeId">
+      </div>
+      <div class="form-group">
+        <label for="phone">Aadhar Number:</label>
+        <input type="text" class="form-control" id="aadharnumber" formControlName="aadharNumber"
+          [class.is-invalid]="newapplication.get('aadharNumber').errors && newapplication.get('aadharNumber').touched">
+        <span class='invalid-feedback' *ngIf='newapplication.get("aadharNumber").hasError("required")'>
+          Please enter Aadhar Number
+        </span>
+        <span class='invalid-feedback' *ngIf='newapplication.get("aadharNumber").hasError("aadharNumberInvalid")'>
+          Please enter valid Aadhar Number
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="company">Company:</label>
+        <select class="form-control" id="company" formControlName="companyId">
+          <option value="">Select a company</option>
+          <option *ngFor="let company of companyList" [value]="company.id">{{ company.companyName }}</option>
+        </select>
+
+      </div>
+      <div *ngIf="newapplication.get('roleId').value==='1'">
+        <div class="form-group">
+          <label for="phone">license Number:</label>
+          <input type="tel" class="form-control" id="licenseno" formControlName="licenseNo"
+            [class.is-invalid]="newapplication.get('licenseNo').errors && newapplication.get('licenseNo').touched">
+          <span class='invalid-feedback' *ngIf='newapplication.get("licenseNo").hasError("required")'>
+            Please enter Driving License Number
+          </span>
+          <span class='invalid-feedback' *ngIf='newapplication.get("licenseNo").hasError("invalidlicenseno")'>
+            Please enter valid Driving License Number
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Expiration Date:</label>
+          <input type="date" class="form-control" id="expdate" formControlName="expirationDate"
+            [class.is-invalid]="newapplication.get('expirationDate').errors && newapplication.get('expirationDate').touched">
+          <span class='invalid-feedback' *ngIf='newapplication.get("expirationDate").hasError("invalidexpdate")'>
+            Expiration Date is invalid
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="rta">Rta:</label>
+          <input type="text" class="form-control" id="rta" formControlName="rta">
+        </div>
+        <div class="form-group">
+          <label for="rta">Allowed Vehicles:</label>
+          <input type="text" class="form-control" id="allowed" formControlName="alowedVehicles">
+        </div>
+      </div>
+      <button type="reset" class="btn btn-primary">Reset</button>
+      <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
+    </form>
   </div>
-  <div *ngIf="newapplication.get('roleId').value==='1'">
-    <div class="form-group">
-      <label for="phone">license Number:</label>
-      <input type="tel" class="form-control" id="licenseno" formControlName="licenseNo"
-      [class.is-invalid]="newapplication.get('licenseNo').errors && newapplication.get('licenseNo').touched">
-      <span class='invalid-feedback' *ngIf='newapplication.get("licenseNo").hasError("required")'>
-        Please enter Driving License Number
-      </span>
-      <span class='invalid-feedback' *ngIf='newapplication.get("licenseNo").hasError("invalidlicenseno")'>
-        Please enter valid Driving License Number
-      </span>
-    </div>
-    <div class="form-group">
-      <label for="phone">Expiration Date:</label>
-      <input type="date" class="form-control" id="expdate" formControlName="expirationDate"
-      [class.is-invalid]="newapplication.get('expirationDate').errors && newapplication.get('expirationDate').touched">
-      <span class='invalid-feedback' *ngIf='newapplication.get("expirationDate").hasError("invalidexpdate")'>
-        Expiration Date is invalid
-      </span>
-    </div>
-    <div class="form-group">
-      <label for="rta">Rta:</label>
-      <input type="text" class="form-control" id="rta" formControlName="rta">
-    </div>
-    <div class="form-group">
-      <label for="rta">Allowed Vehicles:</label>
-      <input type="text" class="form-control" id="allowed" formControlName="alowedVehicles">
-    </div>
-  </div>
-  <button type="reset" class="btn btn-primary">Reset</button>
-  <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
-</form>
-</div>
 </div>

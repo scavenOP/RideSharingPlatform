@@ -75,6 +75,11 @@ namespace RideSharingPlatform.Microservices.VehicleManagement.BLL
             return _vehicleRepository.GetVehicle(userid);
         }
 
+        public List<VehicleDTO> GetAllPendingVehicles() { 
+            return _vehicleRepository.GetPendingVehicles();
+        
+        }
+
         public bool UpdateVehicleStatus(UpdateVehiceDTO updateVehiceDTO)
         {
             return _vehicleRepository.UpdateVehicleStatus(updateVehiceDTO);

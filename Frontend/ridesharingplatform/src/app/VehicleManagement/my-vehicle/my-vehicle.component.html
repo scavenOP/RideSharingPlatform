@@ -1,0 +1,83 @@
+<div *ngIf="deleted">
+  <h2 class="text-center mb-4">Vehicle Deleted</h2>
+  <button class="btn btn-primary" (click)="deleted=false;" routerLink="">Back</button>
+</div>
+<div *ngIf="!deleted">
+<div *ngIf="isLoading">
+  <app-loading></app-loading>
+</div>
+<div *ngIf="!isLoading">
+<div *ngIf="uservehicle.registrationNo!=null">
+<h2 class="text-center mb-4">My Vehicle</h2>
+<div class="container">
+<p>Registration No : {{uservehicle.registrationNo}}</p>
+<p>VehicleType : {{uservehicle.vehicleType.type}}</p>
+<p>Max Passange allowed in Vehicle : {{uservehicle.vehicleType.maxPassengersAllowed}}</p>
+<p>RTO Name : {{uservehicle.rtoName}}</p>
+<p>Registration Date : {{uservehicle.registrationDate}}</p>
+<p>Registration Expires On : {{uservehicle.registrationExpiresOn}}</p>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrationModal">
+    Show Insurance Details
+  </button><br><br>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pucModal">
+    Show PUC Details
+  </button><br>
+  <p>Inspection Status : {{uservehicle.inspectionStatus}}</p>
+  <br>
+  <br>
+  <button class="btn btn-primary" (click)="deleteVehicle()">Delete vehicle</button>
+
+</div>
+
+<!-- Insurance Modal -->
+<div  class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registrationModalLabel">Vehicle Insurance Details</h5>
+          <!-- <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            
+          
+        </div>
+        <div class="modal-body">
+            <p>Insurance Company Name : {{uservehicle.insuranceCompanyName}}</p>
+            <p>Insurance No. : {{uservehicle.insuranceNo}}</p>
+            <p>Insuranced On : {{uservehicle.insurancedOn}}</p>
+            <p>Insurance Expires On : {{uservehicle.insuranceExpiresOn}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PUC Modal -->
+  <div  class="modal fade" id="pucModal" tabindex="-1" role="dialog" aria-labelledby="pucModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="pucModalLabel">Vehicle PUC Details</h5>
+          <!-- <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            
+          
+        </div>
+        <div class="modal-body">
+            <p>PUC Certificate No : {{uservehicle.pucCertificateNo}}</p>
+            <p>PUC Issued On : {{uservehicle.pucIssuedOn}}</p>
+            <p>PUC Expires On : {{uservehicle.pucValidUntil}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="uservehicle.registrationNo==null">
+  <h2 class="text-center mb-4">You have not added any Vehicle . </h2>
+</div>
+</div>
+</div>

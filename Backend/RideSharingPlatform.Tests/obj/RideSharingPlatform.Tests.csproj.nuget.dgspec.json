@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform.Tests\\RideSharingPlatform.Tests.csproj": {}
+    "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform.Tests\\RideSharingPlatform.Tests.csproj": {}
   },
   "projects": {
-    "C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform.Tests\\RideSharingPlatform.Tests.csproj": {
+    "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform.Tests\\RideSharingPlatform.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform.Tests\\RideSharingPlatform.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform.Tests\\RideSharingPlatform.Tests.csproj",
         "projectName": "RideSharingPlatform.Tests",
-        "projectPath": "C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform.Tests\\RideSharingPlatform.Tests.csproj",
-        "packagesPath": "C:\\Users\\2262942\\.nuget\\packages\\",
-        "outputPath": "C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform.Tests\\obj\\",
+        "projectPath": "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform.Tests\\RideSharingPlatform.Tests.csproj",
+        "packagesPath": "C:\\Users\\acer pc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\2262942\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj": {
-                "projectPath": "C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj"
+              "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj": {
+                "projectPath": "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj"
               }
             }
           }
@@ -77,21 +77,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj": {
+    "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj",
+        "projectUniqueName": "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj",
         "projectName": "RideSharingPlatform",
-        "projectPath": "C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj",
-        "packagesPath": "C:\\Users\\2262942\\.nuget\\packages\\",
-        "outputPath": "C:\\RideSharingPlatform\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\obj\\",
+        "projectPath": "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj",
+        "packagesPath": "C:\\Users\\acer pc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\2262942\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -175,7 +175,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

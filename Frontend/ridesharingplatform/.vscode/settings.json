@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/b71e4e1e-5304-4874-9064-7f64607af2ba/resourceGroups/RideSharingDb/providers/Microsoft.Web/sites/ridesharingapp",
+    "appService.deploySubpath": "dist"
+}
