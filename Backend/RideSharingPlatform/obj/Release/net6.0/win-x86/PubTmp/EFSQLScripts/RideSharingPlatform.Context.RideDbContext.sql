@@ -363,3 +363,132 @@ GO
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230527031816_added_ride_managent')
+BEGIN
+    CREATE TABLE [Bookings] (
+        [BookingID] int NOT NULL IDENTITY,
+        [BookedOn] int NOT NULL,
+        [RiderUserId] int NOT NULL,
+        [NoOfSeats] int NOT NULL,
+        [TotalAmount] int NOT NULL,
+        [PaymentMode] nvarchar(max) NOT NULL,
+        [RideSchedulesID] int NOT NULL,
+        CONSTRAINT [PK_Bookings] PRIMARY KEY ([BookingID])
+    );
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230527031816_added_ride_managent')
+BEGIN
+    CREATE TABLE [Distances] (
+        [ID] int NOT NULL IDENTITY,
+        [From] nvarchar(max) NOT NULL,
+        [To] nvarchar(max) NOT NULL,
+        [DistanceInKMS] int NOT NULL,
+        CONSTRAINT [PK_Distances] PRIMARY KEY ([ID])
+    );
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230527031816_added_ride_managent')
+BEGIN
+    CREATE TABLE [RideSchedules] (
+        [ID] int NOT NULL IDENTITY,
+        [RideFrom] nvarchar(max) NOT NULL,
+        [RideTo] nvarchar(max) NOT NULL,
+        [RideStartsOn] datetime2 NOT NULL,
+        [RideTime] datetime2 NOT NULL,
+        [RideFare] int NOT NULL,
+        [VehicleRegistrationNo] nvarchar(max) NOT NULL,
+        [MotoristUserId] int NOT NULL,
+        [NoOfSeatsAvailable] int NOT NULL,
+        CONSTRAINT [PK_RideSchedules] PRIMARY KEY ([ID])
+    );
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230527031816_added_ride_managent')
+BEGIN
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'ID', N'DistanceInKMS', N'From', N'To') AND [object_id] = OBJECT_ID(N'[Distances]'))
+        SET IDENTITY_INSERT [Distances] ON;
+    EXEC(N'INSERT INTO [Distances] ([ID], [DistanceInKMS], [From], [To])
+    VALUES (1, 10, N''Unitech'', N''Dunlop'')');
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'ID', N'DistanceInKMS', N'From', N'To') AND [object_id] = OBJECT_ID(N'[Distances]'))
+        SET IDENTITY_INSERT [Distances] OFF;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230527031816_added_ride_managent')
+BEGIN
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'ID', N'DistanceInKMS', N'From', N'To') AND [object_id] = OBJECT_ID(N'[Distances]'))
+        SET IDENTITY_INSERT [Distances] ON;
+    EXEC(N'INSERT INTO [Distances] ([ID], [DistanceInKMS], [From], [To])
+    VALUES (2, 5, N''Unitech'', N''SlatLake'')');
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'ID', N'DistanceInKMS', N'From', N'To') AND [object_id] = OBJECT_ID(N'[Distances]'))
+        SET IDENTITY_INSERT [Distances] OFF;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230527031816_added_ride_managent')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20230527031816_added_ride_managent', N'6.0.13');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230527145858_ifany')
+BEGIN
+    EXEC sp_rename N'[Bookings].[BookedOn]', N'RideScheduleID', N'COLUMN';
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230527145858_ifany')
+BEGIN
+    CREATE INDEX [IX_Bookings_RideScheduleID] ON [Bookings] ([RideScheduleID]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230527145858_ifany')
+BEGIN
+    ALTER TABLE [Bookings] ADD CONSTRAINT [FK_Bookings_RideSchedules_RideScheduleID] FOREIGN KEY ([RideScheduleID]) REFERENCES [RideSchedules] ([ID]) ON DELETE CASCADE;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230527145858_ifany')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20230527145858_ifany', N'6.0.13');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230527150008_ifany1')
+BEGIN
+    ALTER TABLE [Bookings] ADD [BookedOn] datetime2 NOT NULL DEFAULT '0001-01-01T00:00:00.0000000';
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230527150008_ifany1')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20230527150008_ifany1', N'6.0.13');
+END;
+GO
+
+COMMIT;
+GO
+

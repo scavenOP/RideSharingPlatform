@@ -21,12 +21,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Microservices\RideManagement\BLL\" />
-    <Folder Include="Microservices\RideManagement\DAL\" />
-    <Folder Include="Microservices\RideManagement\Models\" />
-    <Folder Include="Microservices\RideManagement\Controller\" />
-    <Folder Include="Microservices\RideManagement\Helper\" />
-  </ItemGroup>
-
 </Project>

@@ -182,6 +182,123 @@ namespace RideSharingPlatform.Migrations
                     b.ToTable("InvestigationDetails");
                 });
 
+            modelBuilder.Entity("RideSharingPlatform.Microservices.RideManagement.Models.Booking", b =>
+                {
+                    b.Property<int>("BookingID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingID"), 1L, 1);
+
+                    b.Property<DateTime>("BookedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("NoOfSeats")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PaymentMode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RideScheduleID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RideSchedulesID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RiderUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalAmount")
+                        .HasColumnType("int");
+
+                    b.HasKey("BookingID");
+
+                    b.HasIndex("RideScheduleID");
+
+                    b.ToTable("Bookings");
+                });
+
+            modelBuilder.Entity("RideSharingPlatform.Microservices.RideManagement.Models.Distance", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("DistanceInKMS")
+                        .HasColumnType("int");
+
+                    b.Property<string>("From")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("To")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Distances");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            DistanceInKMS = 10,
+                            From = "Unitech",
+                            To = "Dunlop"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            DistanceInKMS = 5,
+                            From = "Unitech",
+                            To = "SlatLake"
+                        });
+                });
+
+            modelBuilder.Entity("RideSharingPlatform.Microservices.RideManagement.Models.RideSchedule", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("MotoristUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NoOfSeatsAvailable")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RideFare")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RideFrom")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RideStartsOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("RideTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RideTo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VehicleRegistrationNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("RideSchedules");
+                });
+
             modelBuilder.Entity("RideSharingPlatform.Microservices.UserVerification.Models.Company", b =>
                 {
                     b.Property<int>("Id")
@@ -525,6 +642,17 @@ namespace RideSharingPlatform.Migrations
                         .IsRequired();
 
                     b.Navigation("Incident");
+                });
+
+            modelBuilder.Entity("RideSharingPlatform.Microservices.RideManagement.Models.Booking", b =>
+                {
+                    b.HasOne("RideSharingPlatform.Microservices.RideManagement.Models.RideSchedule", "RideSchedule")
+                        .WithMany()
+                        .HasForeignKey("RideScheduleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RideSchedule");
                 });
 
             modelBuilder.Entity("RideSharingPlatform.Microservices.UserVerification.Models.DrivingLicense", b =>

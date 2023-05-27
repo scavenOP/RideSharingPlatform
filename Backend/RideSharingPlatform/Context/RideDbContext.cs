@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RideSharingPlatform.Authentication.Models;
 using RideSharingPlatform.Microservices.IncidentManagement.Models;
+using RideSharingPlatform.Microservices.RideManagement.Models;
 using RideSharingPlatform.Microservices.UserVerification.Models;
 using RideSharingPlatform.Microservices.VehicleManagement.Models;
 
@@ -13,6 +14,7 @@ namespace RideSharingPlatform.Context
 
         }
 
+        //microservice-user verification
         public DbSet<Company> Companies { get; set; }
         public DbSet<UserApplication> UserApplications { get; set; }
         public DbSet<DrivingLicense> DrivingLicenses { get; set; }
@@ -25,11 +27,18 @@ namespace RideSharingPlatform.Context
 
         public DbSet<VehicleType> VehicleTypes { get; set; }
 
+        //microservice-ride management
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Distance> Distances { get; set; }
+        public DbSet<RideSchedule> RideSchedules { get; set; }  
+
         // microservices-incident management
         public DbSet<Incident> Incidents { get; set; }
         public DbSet<IncidentTypes> IncidentTypes { get; set; }
 
         public DbSet<InvestigationDetails> InvestigationDetails { get; set; }
+
+        
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -123,6 +132,25 @@ namespace RideSharingPlatform.Context
                       MaxPassengersAllowed = 1,
                       FarePerKM = 9
                   }
+                );
+
+            //microservice-ride management
+
+            modelBuilder.Entity<Distance>().HasData(
+                new Distance
+                {
+                    ID=1,
+                    From="Unitech",
+                    To="Dunlop",
+                    DistanceInKMS= 10,
+                },
+                new Distance
+                {
+                    ID = 2,
+                    From = "Unitech",
+                    To = "SlatLake",
+                    DistanceInKMS = 5,
+                }
                 );
             //microservice-incident management
 
