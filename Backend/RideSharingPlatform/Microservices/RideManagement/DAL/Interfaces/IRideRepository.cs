@@ -12,6 +12,7 @@ namespace RideSharingPlatform.Microservices.RideManagement.DAL.Interfaces
         IEnumerable<RideSchedule> Search(SearchDTO searchdto);
         int BookRide(Booking booking);
         int GetRideFare(FareDTO fareDTO);
+        string GetRegNo(int userId);
 
 
     }

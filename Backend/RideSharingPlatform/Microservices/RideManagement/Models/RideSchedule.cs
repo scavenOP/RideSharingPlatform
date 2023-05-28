@@ -13,7 +13,7 @@ namespace RideSharingPlatform.Microservices.RideManagement.Models
         public DateTime RideStartsOn { get; set; }
 
         [CustomValidation(typeof(RideSchedule), "ValidateDate")]
-        public DateTime RideTime { get; set; }
+        public string RideTime { get; set; }
         public int RideFare { get; set; }
         public string VehicleRegistrationNo { get; set; }
         [RegularExpression(@"^\d{10}$", ErrorMessage = "Vehicle Registration Number must be 10 digits")]

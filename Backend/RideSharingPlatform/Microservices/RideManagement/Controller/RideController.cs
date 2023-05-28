@@ -59,5 +59,14 @@ namespace RideSharingPlatform.Microservices.RideManagement.Controller
             return Ok(r);
         }
 
+        [HttpGet]
+        [Route("GetRegNo/{userId}")]
+        public IActionResult GetRegNo(int userId)
+        {
+            var r =_service.GetRegNo(userId);
+            return Ok(r);
+        }
+        
+
     }
 }

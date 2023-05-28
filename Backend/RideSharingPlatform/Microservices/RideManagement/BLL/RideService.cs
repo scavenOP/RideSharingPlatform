@@ -57,5 +57,12 @@ namespace RideSharingPlatform.Microservices.RideManagement.BLL
         {
             return _repository.GetRideFare(fare);
         }
+
+        public string GetRegNo(int userid)
+        {
+            return _repository.GetRegNo(userid);
+        }
+
+
     }
 }

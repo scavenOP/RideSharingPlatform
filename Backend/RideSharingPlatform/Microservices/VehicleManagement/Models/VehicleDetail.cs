@@ -11,11 +11,11 @@ namespace RideSharingPlatform.Microservices.VehicleManagement.Models
             [MaxLength(10)]
             public string RTOName { get; set; }
 
-            [ReportDatePast(ErrorMessage = "Enter date should not be a past date")]
+            
             public DateTime RegistrationDate { get; set; }
 
-
-            public DateTime RegistrationExpiresOn { get; set; }
+        [ReportDatePast(ErrorMessage = "Enter date should not be a past date")]
+        public DateTime RegistrationExpiresOn { get; set; }
 
            
 

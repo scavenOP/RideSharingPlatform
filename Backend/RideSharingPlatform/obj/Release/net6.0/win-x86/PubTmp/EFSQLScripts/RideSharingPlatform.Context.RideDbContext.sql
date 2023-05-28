@@ -492,3 +492,53 @@ GO
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230528155521_at')
+BEGIN
+    DECLARE @var3 sysname;
+    SELECT @var3 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[RideSchedules]') AND [c].[name] = N'RideTime');
+    IF @var3 IS NOT NULL EXEC(N'ALTER TABLE [RideSchedules] DROP CONSTRAINT [' + @var3 + '];');
+    ALTER TABLE [RideSchedules] ALTER COLUMN [RideTime] time NOT NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230528155521_at')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20230528155521_at', N'6.0.13');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230528161225_at1')
+BEGIN
+    DECLARE @var4 sysname;
+    SELECT @var4 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[RideSchedules]') AND [c].[name] = N'RideTime');
+    IF @var4 IS NOT NULL EXEC(N'ALTER TABLE [RideSchedules] DROP CONSTRAINT [' + @var4 + '];');
+    ALTER TABLE [RideSchedules] ALTER COLUMN [RideTime] nvarchar(max) NOT NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230528161225_at1')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20230528161225_at1', N'6.0.13');
+END;
+GO
+
+COMMIT;
+GO
+

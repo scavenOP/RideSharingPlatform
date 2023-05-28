@@ -11,7 +11,7 @@ namespace RideSharingPlatform.Microservices.RideManagement.Models.DTOs
         
         public DateTime RideStartsOn { get; set; }
 
-        public DateTime RideTime { get; set; }
+        public string RideTime { get; set; }
         //public int RideFare { get; set; }
         public string VehicleRegistrationNo { get; set; }
        
@@ -19,4 +19,5 @@ namespace RideSharingPlatform.Microservices.RideManagement.Models.DTOs
         public int MotoristUserId { get; set; }
         public int NoOfSeatsAvailable { get; set; }
     }
+
 }

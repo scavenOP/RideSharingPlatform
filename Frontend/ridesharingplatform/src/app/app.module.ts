@@ -13,6 +13,7 @@ import { AddvehicleComponent } from './VehicleManagement/addvehicle/addvehicle.c
 import { LoadingComponent } from './loading/loading.component';
 import { MyVehicleComponent } from './VehicleManagement/my-vehicle/my-vehicle.component';
 import { ApproveRejectVehicleComponent } from './VehicleManagement/approve-reject-vehicle/approve-reject-vehicle.component';
+import { ScheduleRideComponent } from './RideManagement/schedule-ride/schedule-ride.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ApproveRejectVehicleComponent } from './VehicleManagement/approve-rejec
     LoadingComponent,
     MyVehicleComponent,
     ApproveRejectVehicleComponent,
+    ScheduleRideComponent,
     
   ],
   imports: [

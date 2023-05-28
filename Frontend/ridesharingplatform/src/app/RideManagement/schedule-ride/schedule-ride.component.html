@@ -1,0 +1,78 @@
+<div *ngIf="submitted">
+    <h2 class="text-center mb-4">Ride Scheduled</h2>
+  </div>
+<div *ngIf="!submitted">
+    <!-- <div *ngIf="isLoading">
+        <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading....</span>
+
+            </div>
+        </div>
+    </div> -->
+    <div>
+        <h2 class="text-center mb-4">New Application</h2>
+        <!-- <div *ngIf="errorMessage!=''" class="alert alert-danger">{{ errorMessage }}</div> -->
+        <form [formGroup]="newride" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="company">Select Distance:</label>
+                <select class="form-control" id="distance" (change)="onOptionSelected($event)">
+                    <option value="" selected>Select a Distance</option>
+                    <option *ngFor="let distance of distances" [value]="distance.id"> From {{ distance.from }} to {{distance.to}} </option>
+                </select>
+
+
+            </div>
+
+            <div *ngIf="isLoading" class="form-group">
+                <app-loading></app-loading>
+            </div>
+
+
+            <div *ngIf="!isLoading" class="form-group">
+                <p>{{Fare}}</p>
+                </div>
+                <div *ngIf="selectedDistance">
+                    <div class="form-group">
+                        <label for="name">Ride Starts On:</label>
+                        <input type="date" class="form-control" id="rideStartsOn" formControlName="rideStartsOn"
+                            [class.is-invalid]="newride.get('rideStartsOn').errors && newride.get('rideStartsOn').touched"
+                            required />
+                        <span class='invalid-feedback' *ngIf='newride.get("rideStartsOn").hasError("required")'>
+                            Please enter Start Date
+                        </span>
+    
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="name">Ride Starts On:</label>
+                        <input type="time" class="form-control" id="rideTime" formControlName="rideTime"
+                            [class.is-invalid]="newride.get('rideTime').errors && newride.get('rideTime').touched"
+                            required />
+                        <span class='invalid-feedback' *ngIf='newride.get("rideTime").hasError("required")'>
+                            Please enter Start time
+                        </span>
+    
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Available Seats :</label>
+                        <input type="number" class="form-control" id="noOfSeatsAvailable" formControlName="noOfSeatsAvailable"
+                            [class.is-invalid]="newride.get('noOfSeatsAvailable').errors && newride.get('noOfSeatsAvailable').touched"
+                            required />
+                        <span class='invalid-feedback' *ngIf='newride.get("noOfSeatsAvailable").hasError("required")'>
+                            Please enter Seats Available
+                        </span>
+    
+                    </div>
+                    <button type="reset" class="btn btn-primary">Reset</button>
+      <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
+
+                </div>
+                
+
+                
+            
+        </form>
+    </div>
+</div>

@@ -283,8 +283,9 @@ namespace RideSharingPlatform.Migrations
                     b.Property<DateTime>("RideStartsOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("RideTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("RideTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RideTo")
                         .IsRequired()

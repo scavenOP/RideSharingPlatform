@@ -77,5 +77,11 @@ namespace RideSharingPlatform.Microservices.RideManagement.DAL
             _context.SaveChanges();
             return booking.BookingID;
         }
+
+        public string GetRegNo(int userId)
+        {
+            var v = _context.Vehicles.FirstOrDefault(v => v.BelongsToUserId== userId);
+            return v.RegistrationNo;
+        }
     }
 }
