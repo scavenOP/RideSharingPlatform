@@ -11,7 +11,7 @@ import { FareDTO } from "./Models/model.faredto";
     providedIn: 'root'
   })
   export class ApiService {
-    private apiUrl = 'https://ridesharingapi.azurewebsites.net/api'; 
+    private apiUrl = 'https://localhost:7083/api'; 
     public unAuthorisedError = new EventEmitter<void>();
     private token=this.tokenservice.getToken();
   
