@@ -3,34 +3,51 @@ using RideSharingPlatform.Microservices.IncidentManagement.Models.DTO;
 using RideSharingPlatform.Microservices.IncidentManagement.Models;
 using Microsoft.IdentityModel.Tokens;
 using AutoMapper;
+using RideSharingPlatform.Microservices.IncidentManagement.DAL.Interface;
 
 namespace RideSharingPlatform.Microservices.IncidentManagement.DAL
 {
-    public class IncidentRepository
+    public class IncidentRepository :IIncident
     {
         private readonly RideDbContext iDPDbContext;
-        private readonly IMapper _mapper;
 
-        public IncidentRepository(RideDbContext context, IMapper mapper)
+
+        public IncidentRepository(RideDbContext iDPDbContext)
         {
-            iDPDbContext = context;
-            _mapper = mapper;
-        }
-        public int AddIncident(Incident incident)
-        {
-
-
-
-            iDPDbContext.Incidents.Add(incident);
-            return iDPDbContext.SaveChanges();
-
-
-        }
-        public IncidentTypes GetIncidentType(int id)
-        {
-            return iDPDbContext.IncidentTypes.FirstOrDefault(i => i.Id == id);
+            this.iDPDbContext = iDPDbContext;
         }
 
+        public string AddIncident(IncidentDTOs incidentDTOs)
+        {
+            var unique = GetUniqueIncidentId();
+            var incidentId = incidentDTOs.IncidentDate.Year.ToString() + "-" + unique;
+            var domainModel = new Incident
+            {
+                IncidentID = incidentId,
+                IncidentDate = incidentDTOs.IncidentDate,
+                ReportDate = incidentDTOs.ReportDate,
+                IncidentReportedByUserId = incidentDTOs.IncidentReportedByUserId,
+                ResolutionETA = incidentDTOs.ResolutionETA,
+                InvestigatedByUserId = incidentDTOs.InvestigatedByUserId,
+                IncidentSummary = incidentDTOs.IncidentSummary,
+                IncidentDetails = incidentDTOs.IncidentDetails,
+                BookingId = incidentDTOs.BookingId,
+                Status = incidentDTOs.Status,
+                IncidentTypeId = incidentDTOs.IncidentTypeId,
+                //IncidentTypes = incidentDTOs.IncidentTypes,
+            };
+            iDPDbContext.Incidents.Add(domainModel);
+            iDPDbContext.SaveChanges();
+            return incidentId;
+
+        }
+        public string GetUniqueIncidentId()
+        {
+            Random random = new Random();
+            int value = random.Next(1000, 10000);
+            string uniquenum = Convert.ToString(value);
+            return $"{uniquenum}";
+        }
 
         public IEnumerable<Incident> GetAllPendingIncidents()
         {
@@ -44,20 +61,28 @@ namespace RideSharingPlatform.Microservices.IncidentManagement.DAL
 
         }
 
-        public int UpdateIncident(string id, string incidentReport)
-        {
-            var incident = iDPDbContext.Incidents.Find(id);
-            if (incident != null)
-            {
-                incident.IncidentDetails = incidentReport;
-                iDPDbContext.Incidents.Update(incident);
-                return iDPDbContext.SaveChanges();
-            }
-            else
-            {
-                return 0;
-            }
-        }
+        //public int UpdateIncident(string incidentID)
+        //{
+        //    var incident = iDPDbContext.Incidents.Find(incidentID);
+        //    if (incident)
+        //    {
+
+        //    }
+        //    else
+        //    {
+        //        return NotFoundResult();
+        //    }
+        //}
+
+
+
+        //public string CreateIncident(IncidentDTOs incidentDTO)
+        //{
+        //    var unique = GetUniqueIncidentId();
+        //    var incidentId = incidentDTO.IncidentDate.Year.ToString() + "-" + unique;
+
+        //    iDPDbContext.Incidents.Add(incidentId);
+        //}
     }
 }
 

@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="C:\Users\acer pc\Documents\GitHub\RideSharingPlatform\Backend\RideSharingPlatform\obj\Release\net6.0\win-x86\PubTmp\Out\" />
-  <dbfullsql path="C:\Users\acer pc\Documents\GitHub\RideSharingPlatform\Backend\RideSharingPlatform\obj\Release\net6.0\win-x86\PubTmp\EFSQLScripts\RideSharingPlatform.Context.RideDbContext.sql" />
+  <IisApp path="C:\RideSharingPlatform-main\Backend\RideSharingPlatform\obj\Release\net6.0\win-x86\PubTmp\Out\" />
 </sitemanifest>

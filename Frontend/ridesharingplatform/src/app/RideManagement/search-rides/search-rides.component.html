@@ -1,0 +1,66 @@
+<div *ngIf="isLoading" class="form-group" style="margin-top: 20%;">
+    <app-loading></app-loading>
+</div>
+<div *ngIf="!isLoading">
+    <h2 class="text-center mb-4">Search Rides</h2>
+
+    <form [formGroup]="newsearch" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">From :</label>
+            <input type="text" class="form-control" id="from" formControlName="from"/>
+        </div>
+
+        <div class="form-group">
+            <label for="name">To :</label>
+            <input type="text" class="form-control" id="to" formControlName="to"/>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Min Price : {{newsearch.get('minPrice').value}}</label>
+            <input class="range" class="form-control" type="range" name=""  min="0" max="100" formControlName="minPrice"/>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Max Price : {{newsearch.get('maxPrice').value}}</label>
+            <input type="range" class="form-control" id="maxPrice" min="100" max="1000" formControlName="maxPrice"/>
+        </div>
+        <!-- <button type="reset" class="btn btn-primary" hidden>Reset</button> -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div *ngIf="isSearching" class="form-group" style="margin-top: 20%;">
+        <app-loading></app-loading>
+    </div>
+
+
+    <!-- <h2 *ngIf="!isSearching" class="text-center mb-4">Search Rides</h2> -->
+<br><br><br>
+
+    <div class="container-fluid">
+        <div class="row">
+          <div class="card-deck">
+        <div *ngFor="let ride of rides" class="card" style="width: 18rem;">
+            <div class="card-body" >
+                <h5 class="card-title">Ride</h5>
+                <p class="card-text">From : {{ride.rideFrom}}</p>
+                <p class="card-text">To : {{ride.rideTo}}</p>
+                <p class="card-text">Start On : {{ride.rideStartsOn}}</p>
+                <p class="card-text">Ride Time : {{ride.rideTime}}</p>
+                <button class="btn btn-primary" (click)="bookRide(ride.id)">Book</button>
+            </div>
+        </div>
+          </div>
+          </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+    function rangeSlide(value) {
+        document.getElementById('rangeValue').innerHTML = value;
+    }
+</script>
+
+
+

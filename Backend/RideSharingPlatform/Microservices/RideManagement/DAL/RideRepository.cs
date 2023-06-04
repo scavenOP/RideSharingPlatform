@@ -2,6 +2,7 @@
 using RideSharingPlatform.Microservices.RideManagement.DAL.Interfaces;
 using RideSharingPlatform.Microservices.RideManagement.Models;
 using RideSharingPlatform.Microservices.RideManagement.Models.DTOs;
+using RideSharingPlatform.Microservices.VehicleManagement.Models;
 
 namespace RideSharingPlatform.Microservices.RideManagement.DAL
 {
@@ -80,7 +81,8 @@ namespace RideSharingPlatform.Microservices.RideManagement.DAL
 
         public string GetRegNo(int userId)
         {
-            var v = _context.Vehicles.FirstOrDefault(v => v.BelongsToUserId== userId);
+            Vehicle v = _context.Vehicles.FirstOrDefault(v => v.BelongsToUserId== userId);
+
             return v.RegistrationNo;
         }
     }

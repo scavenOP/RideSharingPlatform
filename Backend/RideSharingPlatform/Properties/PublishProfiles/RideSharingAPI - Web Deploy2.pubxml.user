@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhToveHqs30uSlDnrfgQRWgAAAAACAAAAAAADZgAAwAAAABAAAADqC4Eg9aoxDzsGXht0ug1TAAAAAASAAACgAAAAEAAAAJD9OHlk+cBMwMJSiManUhGAAAAAfvPLgcvs5cP/ZLNcF3l4OD10yWIqIC5YNVSyUnYTWogSZUz8BIR+WFpdLp8bu8RXc12xaIRgtREj3ayIXyZrCYjFQTni6EB4WiRqynbiesRYpMf+VHWHu05sd7S6/6VetGczPYVJ7wfPiFtyUsDak8uKAwau4pJ/PhNwzNQTfiAUAAAAHlib6KdVvvaQzy6XgMyswet34Us=</EncryptedPassword>
+    <History>True|2023-05-30T08:08:21.3697130Z;False|2023-05-30T13:30:21.4670574+05:30;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DbConnection">
+      <Value>Server=tcp:ridedbserver.database.windows.net,1433%3bInitial Catalog=RideSharingPlatfromDB%3bPersist Security Info=False%3bUser ID=niladri%3bPassword=Devjani%402022%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

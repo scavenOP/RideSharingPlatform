@@ -1,0 +1,99 @@
+
+
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Pending Incidents</h3>
+<div class="card-tools">
+<div class="input-group input-group-ml" style="width: 150px;">
+<input type="text" class="form-control float-right" (keyup)="applyFilter($event)" placeholder="Search">
+<div class="input-group-append">
+</div>
+</div>
+</div>
+</div>
+
+<table mat-table [dataSource]="dataSource" matSort  >
+
+<ng-container matColumnDef="incidentID">
+
+<th mat-header-cell *matHeaderCellDef mat-sort-header> Incident ID </th>
+<td mat-cell *matCellDef="let element"> {{element.incidentID}} </td>
+
+</ng-container>
+<!-- Incident Date Column -->
+
+<ng-container matColumnDef="incidentDate">
+<th mat-header-cell *matHeaderCellDef> Incident Date </th>
+<td mat-cell *matCellDef="let element"> {{element.incidentDate | date: 'dd/MM/yyyy' }} </td>
+</ng-container>
+
+<ng-container matColumnDef="reportDate">
+
+<th mat-header-cell *matHeaderCellDef> Report Date </th>
+<td mat-cell *matCellDef="let element"> {{element.reportDate | date: 'dd/MM/yyyy' }} </td>
+
+</ng-container>
+<ng-container matColumnDef="incidentType">
+
+<th mat-header-cell *matHeaderCellDef mat-sort-header> Incident Type </th>
+<td mat-cell *matCellDef="let element"> {{element.incidentSummary }} </td>
+
+</ng-container>
+<ng-container matColumnDef="status">
+<th mat-header-cell *matHeaderCellDef> Status </th>
+<td mat-cell *matCellDef="let element"> {{element.status}} </td>
+</ng-container>
+
+
+
+
+<!-- Edit column -->
+<ng-container matColumnDef="edit">
+<th mat-header-cell *matHeaderCellDef>  </th>
+<td mat-cell *matCellDef="let element">
+<a [routerLink]="['/track-incident',element.incidentID]">
+<mat-icon fontIcon="edit"></mat-icon>
+
+
+
+
+</a> </td>
+</ng-container>
+
+
+
+
+ <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+<mat-paginator [length]="100"
+
+[pageSize]="10"
+
+[pageSizeOptions]="[5, 10, 25, 100]"
+
+ aria-label="Select page">
+
+</mat-paginator>
+
+</div>
+
+
+
+<!-- .card{
+
+    padding: 0 50px;
+
+
+
+
+} -->
+
+
+
+
+
+
+

@@ -14,6 +14,16 @@ import { LoadingComponent } from './loading/loading.component';
 import { MyVehicleComponent } from './VehicleManagement/my-vehicle/my-vehicle.component';
 import { ApproveRejectVehicleComponent } from './VehicleManagement/approve-reject-vehicle/approve-reject-vehicle.component';
 import { ScheduleRideComponent } from './RideManagement/schedule-ride/schedule-ride.component';
+import { SearchRidesComponent } from './RideManagement/search-rides/search-rides.component';
+import { BookRideComponent } from './RideManagement/book-ride/book-ride.component';
+import { NewIncidentComponent } from './IncidentManagement/new-incident/new-incident.component';
+import { IncidentListComponent } from './IncidentManagement/incident-list/incident-list.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { TrackIncidentComponent } from './IncidentManagement/track-incident/track-incident.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +37,12 @@ import { ScheduleRideComponent } from './RideManagement/schedule-ride/schedule-r
     MyVehicleComponent,
     ApproveRejectVehicleComponent,
     ScheduleRideComponent,
+    SearchRidesComponent,
+    BookRideComponent,
+    NewIncidentComponent,
+    IncidentListComponent,
+    TrackIncidentComponent,
+    HomeComponent,
     
   ],
   imports: [
@@ -35,7 +51,11 @@ import { ScheduleRideComponent } from './RideManagement/schedule-ride/schedule-r
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    MatIconModule,
+    MatSortModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ namespace RideSharingPlatform.Microservices.IncidentManagement.Models
 {
     public class Incident
     {
+
         public string IncidentID { get; set; }
         [CustomValidation(typeof(Incident), "ValidateIncidentDate")]
         public DateTime IncidentDate { get; set; }
@@ -24,7 +25,7 @@ namespace RideSharingPlatform.Microservices.IncidentManagement.Models
         public string Status { get; set; }
         [ForeignKey("IncidentTypes")]
         public int IncidentTypeId { get; set; }
-        public virtual IncidentTypes IncidentTypes { get; set; }
+        //public IncidentTypes IncidentTypes { get; set; }
 
 
         public static ValidationResult ValidateReportDate(DateTime value, ValidationContext context)

@@ -19,6 +19,9 @@
         <li class="nav-item" *ngIf="issecurity()" >
           <a class="nav-link" routerLink="/inspect-vehicle">Pending Vehicle Application</a>
         </li>
+        <li class="nav-item" *ngIf="issecurity()" >
+          <a class="nav-link" routerLink="/incident-list">Incident List</a>
+        </li>
         
           <li class="nav-item" *ngIf="ismotorist()" >
             <a class="nav-link" routerLink="/add-vehicle">Add Vehicle</a>
@@ -30,6 +33,14 @@
           <li class="nav-item" *ngIf="ismotorist()" >
             <a class="nav-link" routerLink="/schedule-ride">Schedule Ride</a>
           </li>
+
+          <li class="nav-item" *ngIf="isrider()" >
+            <a class="nav-link" routerLink="/search-ride">Search Ride</a>
+          </li>
+          <li class="nav-item" *ngIf="isrider() or ismotorist()" >
+            <a class="nav-link" routerLink="/new-incident">New Incident</a>
+          </li>
+          
 
           
         

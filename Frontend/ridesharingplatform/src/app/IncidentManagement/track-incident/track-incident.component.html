@@ -1,0 +1,190 @@
+<div class="page-header">
+
+     <div class="container">
+    
+      <h1>View Incident</h1>
+    
+     </div>
+    
+    </div>
+    
+    
+    
+    
+    <div class="container">
+    
+     <div class="row">
+    
+      <div class="col-xs-12">
+    
+    
+    
+    
+       <button routerLink="/incident-list" class="btn btn-primary">
+    
+        <mat-icon>chevron_left</mat-icon>
+    
+        Go Back
+    
+       </button>
+    
+      </div>
+    
+     </div>
+    
+    </div>
+    
+    
+    
+    
+    <div class="edit">
+    
+     <div class="container">
+    
+      <div class="row">
+    
+       <div class="container">
+    
+        <h1>Track Incident</h1>
+    
+      
+    
+        <form [formGroup]="incidentForm" class="form-control" (ngSubmit)="onSubmit()">
+    
+         <table>
+    
+          <tr>
+    
+           <td>Incident ID:</td>
+    
+           <td><input type="text" formControlName="incidentID" /></td>
+    
+          </tr>
+    
+          <tr>
+    
+           <td>Incident Date:</td>
+    
+           <td><input type="text" formControlName="incidentDate" /></td>
+    
+          </tr>
+    
+          <tr>
+    
+           <td>Report Date:</td>
+    
+           <td><input type="text" formControlName="reportDate" /></td>
+    
+          </tr>
+    
+          <tr>
+    
+           <td>Incident Reported By User ID:</td>
+    
+           <td><input type="text" formControlName="incidentReportedByUserId" /></td>
+    
+          </tr>
+    
+          <tr>
+    
+           <td>Resolution ETA:</td>
+    
+           <td><input type="text" formControlName="resolutionETA" /></td>
+    
+          </tr>
+    
+          <tr>
+    
+           <td>Investigated By User ID:</td>
+    
+           <td><input type="text" formControlName="investigatedByUserId" /></td>
+    
+          </tr>
+    
+          <tr>
+    
+           <td>Incident Summary:</td>
+    
+           <td><input type="text" formControlName="incidentSummary" /></td>
+    
+          </tr>
+    
+          <tr>
+    
+           <td>Incident Details:</td>
+    
+           <td><input type="text" formControlName="incidentDetails" /></td>
+    
+          </tr>
+    
+          <tr>
+    
+           <td>Booking ID:</td>
+    
+           <td><input type="text" formControlName="bookingId" /></td>
+    
+          </tr>
+    
+          <tr>
+    
+           <td>Status:</td>
+    
+           <td><input type="text" formControlName="status"/></td>
+    
+          </tr>
+    
+         </table>
+    
+    
+    
+    
+         <div *ngIf="isSecurity" class="invest">
+    
+    
+    
+    
+          <h2>Investigation Report</h2>
+    
+          <table>
+    
+          <tr>
+    
+           <td>Finding:</td>
+    
+           <td><input formControlName="finding">
+    
+           </td>
+    
+          </tr>
+    
+          <tr>
+    
+           <td>Suggestions:</td>
+    
+           <td><input formControlName="suggestions"></td>
+    
+          </tr>
+    
+          <tr>
+    
+           <td>Investigation Date:</td>
+    
+           <td><input formControlName="investigationDate"></td>
+    
+          </tr>
+    
+    
+    
+    
+         </table>
+    
+         <button type="submit" class="btn btn-primary" style="position: relative;left: 47%; margin-top: 31px;">Submit</button>
+    </div>
+   </form>
+    
+    
+   </div>
+    </div>
+    </div>
+    
+    </div>

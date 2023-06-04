@@ -1,0 +1,84 @@
+
+form {
+    min-width:300px;
+    max-width:400px;
+    padding:20px;
+    margin:0 auto;
+    background: #70e1f5;
+  background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);  
+  background: linear-gradient(to right, #ffd194, #70e1f5);
+    -webkit-box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+    -moz-box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+    box-shadow: 3px 3px 23px -9px rgba(0,0,0,0.86);
+  }
+  
+  form input {
+    border:1px solid #eee;
+    border-radius:0 !important;
+    padding:5px 8px;
+    color:#444;
+  }
+  
+  form button {
+    margin-top:20px;
+  }
+  
+  
+  
+  .pull-right {
+    float:right;
+  }
+  .cont{
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    
+  }
+    
+  .custom-loader {
+    width: 40px;
+    height: 40px;
+    --c: linear-gradient(#766DF4 0 0);
+    background: 
+      var(--c) 0    0,
+      var(--c) 0    100%, 
+      var(--c) 50%  0,  
+      var(--c) 50%  100%, 
+      var(--c) 100% 0, 
+      var(--c) 100% 100%;
+    background-size: 8px 50%;
+    background-repeat: no-repeat;
+    animation: db7-0 1s infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  .custom-loader:before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #766DF4;
+    top:calc(50% - 4px);
+    left:-8px;
+    animation:inherit;
+    animation-name:db7-1;
+  }
+  
+  @keyframes db7-0 {
+   16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}
+   33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}
+   50%    {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%}
+   66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 30%, 8px 30%}
+   83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 30%, 8px 30%}
+  }
+  
+  @keyframes db7-1 {
+   20%  {left:0px}
+   40%  {left:calc(50%  - 4px)}
+   60%  {left:calc(100% - 8px)}
+   80%,
+   100% {left:100%}
+  }

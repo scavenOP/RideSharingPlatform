@@ -6,6 +6,7 @@ import { catchError,map } from 'rxjs/operators';
 import { FareDTO } from "./Models/model.faredto";
 
 
+
 @Injectable({
     providedIn: 'root'
   })
@@ -64,8 +65,31 @@ import { FareDTO } from "./Models/model.faredto";
           );
       }
 
+      getRides(from:string,to:string,min:string,max:string):Observable<any> {
+        const params = new HttpParams()
+        .set('from',from)
+        .set('to',to)
+        .set('MinPrice',min)
+        .set('MaxPrice',max);
+        
+        console.log(params);
+        console.log(`${this.apiUrl}/rides/search`,{params});
+        return this.http.get<any>(`${this.apiUrl}/rides/search`,{params})
+        .pipe(
+          catchError(this.handleError)
+        );
+
+      }
+
       createRide(applicationData: any): Observable<any> {
         return this.http.post<any>(`${this.apiUrl}/rides/schedule`, applicationData)
+          .pipe(
+            catchError(this.handleError)
+          );
+      }
+
+      bookRide(applicationData: any): Observable<any> {
+        return this.http.post<any>(`${this.apiUrl}/rides/book`, applicationData)
           .pipe(
             catchError(this.handleError)
           );

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj": {}
+    "C:\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj": {}
   },
   "projects": {
-    "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj": {
+    "C:\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj",
+        "projectUniqueName": "C:\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj",
         "projectName": "RideSharingPlatform",
-        "projectPath": "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj",
-        "packagesPath": "C:\\Users\\acer pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\acer pc\\Documents\\GitHub\\RideSharingPlatform\\Backend\\RideSharingPlatform\\obj\\publish\\win-x86\\",
+        "projectPath": "C:\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\RideSharingPlatform.csproj",
+        "packagesPath": "C:\\Users\\2262942\\.nuget\\packages\\",
+        "outputPath": "C:\\RideSharingPlatform-main\\Backend\\RideSharingPlatform\\obj\\publish\\win-x86\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\acer pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\2262942\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -112,7 +112,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

@@ -2,13 +2,8 @@
   <h2 class="text-center mb-4">Application Submitted</h2>
 </div>
 <div *ngIf="!submitted">
-  <div *ngIf="isLoading">
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading....</span>
-
-      </div>
-    </div>
+  <div *ngIf="isLoading" style="margin-top: 20%;">
+    <app-loading></app-loading>
   </div>
   <div *ngIf="!isLoading">
     <h2 class="text-center mb-4">New Application</h2>
@@ -123,5 +118,7 @@
       <button type="reset" class="btn btn-primary">Reset</button>
       <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
     </form>
+
+    
   </div>
 </div>

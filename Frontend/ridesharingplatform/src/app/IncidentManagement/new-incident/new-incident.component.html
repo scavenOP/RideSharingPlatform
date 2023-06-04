@@ -1,0 +1,73 @@
+<h2 class="text-center mb-4">New Incident</h2>
+<div class="container-xl">
+
+    <form [formGroup]="newincident" class="form-control" (ngSubmit)="onSubmit()">
+    
+      <div class="mb form-group">
+    
+       <label for="incidentDate" class="form-label">Incident Date</label>
+    
+       <input type="date" class="form-control" id="incidetDate" formControlName="incidentDate">
+    
+      </div>
+    
+      <div class="mb form-group">
+    
+       <label for="reportDate" class="form-label">Report Date</label>
+    
+       <input class="form-control" id="reportDate" formControlName="reportDate">
+    
+      </div>
+    
+       <div class="mb form-group">
+    
+        <label for="incidentSummary" class="form-label">Incident Summary</label>
+    
+        <input type="text" class="form-control" id="incidentSummary" formControlName="incidentSummary">
+    
+       </div>
+    
+       <div class="mb form-group">
+    
+        <label for="incidentDetails" class="form-label">Incident Details</label>
+    
+        <input type="text" class="form-control" id="incidentDetails" formControlName="incidentDetails">
+    
+       </div>
+    
+       <div class="mb form-group">
+    
+        <label for="bookingId" class="form-label">Booking Id</label>
+    
+        <input type="text" class="form-control" id="bookingId" formControlName="bookingId">
+    
+       </div>
+    
+      
+    
+       <div class="mb form-group">
+    
+        <label for="incidentType" class="form-label">Incident Type</label>
+    
+        <select id="incidentType" formControlName="incidentTypeId">
+    
+         <option>Choose an incident type</option>
+    
+         <option *ngFor="let incidents of incidentTypes" [value]="incidents.id">{{incidents.types}}</option>
+    
+        </select>
+    
+       </div>
+    
+       <div style="text-align: center;">
+    
+    
+    
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+    
+       </div>
+    
+     </form>
+    
+     </div>

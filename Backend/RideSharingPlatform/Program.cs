@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using RideSharingPlatform.Context;
+using RideSharingPlatform.Microservices.IncidentManagement.DAL.Interface;
+using RideSharingPlatform.Microservices.IncidentManagement.DAL;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<RideDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")));
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+//Incident managem ent
+
+builder.Services.AddScoped<IIncidentType, IncidentTypeRepository>();
+builder.Services.AddScoped<IIncident, IncidentRepository>();
+builder.Services.AddScoped<IInvestigation, InvestigationRepository>();
+
+//--------------------------------
 
 builder.Services.AddAuthentication(options =>
 {
