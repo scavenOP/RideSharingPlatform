@@ -17,7 +17,7 @@ import { Incident } from './model/incident.model';
 
 export class IncidentService {
 
-    private apiUrl = 'https://ridesharingapi.azurewebsites.net/api';
+    private apiUrl = 'https://localhost:7083/api';
 
 
 
