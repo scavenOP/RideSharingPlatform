@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/app.tokenservice';
   providedIn: 'root'
 })
 export class VehicleApiService {
-  private apiUrl = 'https://ridesharingapi.azurewebsites.net/api'; 
+  private apiUrl = 'https://localhost:7083/api'; 
   public unAuthorisedError = new EventEmitter<void>();
   private token=this.tokenservice.getToken();
 
