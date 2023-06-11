@@ -8,7 +8,7 @@ STEP 1 : Open the Backend Project in Visual Studio and Build it.
 
 STEP 2 : Open AppSetting.JSON file and Replave the connection string with your own connection string.
 
-STEP 3 : RUM `add-migration initial_migration` in Package Manager Console. 
+STEP 3 : RUN `add-migration initial_migration` in Package Manager Console. 
 
 STEP 4 : RUN the Server using Ctrl+ F5.
 
